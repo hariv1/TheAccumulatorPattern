@@ -296,7 +296,7 @@ def run_test_draw_lines_from_rectangles():
     window2.close_on_mouse_click()
 
 
-def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
+def draw_lines_from_rectangles(r1, r2, n, window):
     """
     What comes in:  Four arguments:
       -- Two rg.Rectangles.
