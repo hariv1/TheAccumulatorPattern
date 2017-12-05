@@ -351,17 +351,32 @@ def draw_lines_from_rectangles(r1, r2, n, window):
     r2.attach_to(window)
 
     line = rg.Line(r1.get_center(),r2.get_center())
+    line.color= r1.outline_color
     line.attach_to(window)
 
 
     w = r1.get_width()/2
     h = r1.get_height()/2
 
-    for _ in range(n):
-        start = rg.Point(r1.get_center().x - w, r1.get_center().y + h)
-        end = rg.Point(r2.get_center().x - w, r2.get_center().y + h)
+    a = w
+    b = h
+
+    for k in range(n-1):
+
+        start = rg.Point(r1.get_center().x - a, r1.get_center().y + b)
+        end = rg.Point(r2.get_center().x - a, r2.get_center().y + b)
         linemod = rg.Line(start,end)
+
+        if k % 2 == 0:
+            linemod.color = r2.outline_color
+        else:
+            linemod.color = r1.outline_color
+
+        a =a + w
+        b = b + h
+
         linemod.attach_to(window)
+
 
     window.render()
 
